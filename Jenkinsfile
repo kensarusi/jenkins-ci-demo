@@ -13,11 +13,12 @@ pipeline {
                 echo 'Instalando dependencias...'
             }
         }
-        stage('Ejecutar Pruebas') {
-            steps {
-                echo 'Ejecutando pruebas unitarias...'
-            }
-        }
+stage('Ejecutar Pruebas') {
+    steps {
+        echo 'Ejecutando pruebas unitarias...'
+        error('ERROR INTENCIONAL: Fallo en pruebas unitarias')
+    }
+}
         stage('Validar Calidad') {
             steps {
                 echo 'Validando calidad del codigo...'
