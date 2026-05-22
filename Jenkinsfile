@@ -38,7 +38,13 @@ pipeline {
                 link: env.BUILD_URL,
                 result: currentBuild.currentResult,
                 title: "Build #${env.BUILD_NUMBER}",
-                webhookURL: "https://discord.com/api/webhooks/1507462355435389060/bI4l3JIHOKPODxpBReGlB3XuQtStgdPNB_hsmV_TBhykaGwHdOVco6epl-ZPSWMZ9ytE"
+                webhookURL: "TU_WEBHOOK_DISCORD"
+            )
+            emailext(
+                subject: "✅ Jenkins Build EXITOSO - #${env.BUILD_NUMBER}",
+                body: "<h2>Build Exitoso</h2><p>Proyecto: jenkins-ci-demo</p><p>Build: #${env.BUILD_NUMBER}</p>",
+                to: "kensarusi@gmail.com",
+                mimeType: 'text/html'
             )
         }
         failure {
@@ -48,7 +54,13 @@ pipeline {
                 link: env.BUILD_URL,
                 result: currentBuild.currentResult,
                 title: "Build #${env.BUILD_NUMBER}",
-                webhookURL: "TU_WEBHOOK_URL_DE_DISCORD"
+                webhookURL: "TU_WEBHOOK_DISCORD"
+            )
+            emailext(
+                subject: "❌ Jenkins Build FALLIDO - #${env.BUILD_NUMBER}",
+                body: "<h2>Build Fallido</h2><p>Proyecto: jenkins-ci-demo</p><p>Build: #${env.BUILD_NUMBER}</p>",
+                to: "kensarusi@gmail.com",
+                mimeType: 'text/html'
             )
         }
     }
