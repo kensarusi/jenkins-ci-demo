@@ -16,6 +16,8 @@ pipeline {
 stage('Ejecutar Pruebas') {
     steps {
         echo 'Ejecutando pruebas unitarias...'
+        echo 'Detectando errores en auth.js...'
+        error('ERROR: undefinedVariable no está definida en auth.js - Fallo en autenticación')
     }
 }
         stage('Validar Calidad') {
