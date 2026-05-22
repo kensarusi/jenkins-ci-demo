@@ -16,7 +16,6 @@ pipeline {
 stage('Ejecutar Pruebas') {
     steps {
         echo 'Ejecutando pruebas unitarias...'
-        error('ERROR INTENCIONAL: Fallo en pruebas unitarias')
     }
 }
         stage('Validar Calidad') {
